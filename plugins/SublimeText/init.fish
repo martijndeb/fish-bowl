@@ -8,4 +8,3 @@ else
         alias subl $sublPath
     end
 end
-

@@ -1,4 +1,4 @@
-# fish-bowl
+# fish-bowl, http://source.theimpossibleastronaut.com/fish-bowl/
 set FISHBOWLVERSION 0.1
 set FISHBOWLUSER (whoami)
 set FISHBOWLPLATFORM (uname -s)
