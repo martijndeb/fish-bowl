@@ -1,5 +1,5 @@
 # Load from the plugin path
-function loadFishBowlPlugin
+function loadFishBowlPlugin --description "Loads a plugin for fish-bowl"
     set -l lPluginPath $FBPATH/plugins/$argv[1]
 
     if test -d $lPluginPath
@@ -15,4 +15,14 @@ function loadFishBowlPlugin
             end
         end
     end
+end
+
+function enablePlugin --description "Enables a plugin for fish-bowl"
+    touch $FBPATH/plugins/$argv[1]/.enabled
+    loadFishBowlPlugin $argv[1]
+end
+
+function disablePlugin --description "Disables a plugin for fish-bowl"
+    rm $FBPATH/plugins/$argv[1]/.enabled
+    printf 'Disabled plugin currently requires you to restart your shell'
 end
