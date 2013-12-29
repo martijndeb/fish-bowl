@@ -1,0 +1,6 @@
+If you want to create your own plugin, just copy this dummy folder.
+Make sure your plugin has:
+- a description file
+- a init.fish
+
+In order to enable it, make sure to touch .enabled

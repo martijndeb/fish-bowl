@@ -1,2 +1,3 @@
 # Include the fish-bowl script
-. ~/.config/fish-bowl/bowl.fish
+set FBPATH $HOME/.config/fish-bowl
+. $FBPATH/bowl.fish
