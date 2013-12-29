@@ -1,4 +1,5 @@
 Martijn de Boer <github at sexybiggetje.nl>
     core
     plugins/dummy
-    plugins/Sublime Text
+    plugins/SublimeText
+    plugins/Love2D

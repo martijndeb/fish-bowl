@@ -17,12 +17,14 @@ function loadFishBowlPlugin --description "Loads a plugin for fish-bowl"
     end
 end
 
+# Enables a plugin
 function enablePlugin --description "Enables a plugin for fish-bowl"
     touch $FBPATH/plugins/$argv[1]/.enabled
     loadFishBowlPlugin $argv[1]
 end
 
+# Disables a plugin.
 function disablePlugin --description "Disables a plugin for fish-bowl"
     rm $FBPATH/plugins/$argv[1]/.enabled
-    printf 'Disabled plugin currently requires you to restart your shell'
+    printf 'Disabled plugin currently requires you to restart your shell\n'
 end
