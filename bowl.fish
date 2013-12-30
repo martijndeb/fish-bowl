@@ -11,10 +11,16 @@ for p in /usr/bin /usr/local/bin /opt/local/bin ~/bin ~/.config/fish/bin
         set PATH $p $PATH
     end
 end
+
 # Dependencies (internal)
 . $FBPATH/src/functions.fish
 
 # Load plugins. Loader will see if they need to be activated.
 for pluginName in $FBPATH/plugins/*
     loadFishBowlPlugin (basename $pluginName)
+end
+
+# Restore prompt if one exists
+if test -f $FBPATH/prompts/.activeprompt
+    setActivePrompt (cat $FBPATH/prompts/.activeprompt | sed -e 's/^ *//g' -e 's/ *$//g')
 end

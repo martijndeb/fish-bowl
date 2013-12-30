@@ -28,3 +28,21 @@ function disablePlugin --description "Disables a plugin for fish-bowl"
     rm $FBPATH/plugins/$argv[1]/.enabled
     printf 'Disabled plugin currently requires you to restart your shell\n'
 end
+
+# Sets the active prompt
+function setActivePrompt --description "Sets the active prompt to"
+    set -l activePrompt $argv[1]
+
+    set -l lPromptPath $FBPATH/prompts/$activePrompt.fish
+
+    if test -f $lPromptPath
+        echo $activePrompt > $FBPATH/prompts/.activeprompt
+        . $lPromptPath
+    end
+end
+
+# Reset the prompt
+function resetPrompt --description "Reset to the default prompt"
+    rm $FBPATH/prompts/.activeprompt
+    setActivePrompt default
+end
