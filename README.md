@@ -29,5 +29,27 @@ enablePlugin <pluginname>
 
 Disabling a plugin
 ```
-disablePlugin <plugin>
+disablePlugin <pluginname>
+```
+
+Creating a new plugin
+```
+cp $FBPATH/plugins/dummy $FBPATH/plugins/<pluginname>
+# Read instructions, then peplace with a description for your plugin
+vi $FBPATH/plugins/<pluginname>/description
+vi $FBPATH/plugins/<pluginname>/init.fish
+enablePlugin <pluginname>
+# Test and send a pull request
+```
+
+Custom prompts
+=========
+Loading a custom prompt
+```
+setActivePrompt <promptname>
+```
+
+Resetting to default
+```
+resetPrompt
 ```
