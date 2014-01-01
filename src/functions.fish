@@ -6,7 +6,7 @@ function loadFishBowlPlugin --description "Loads a plugin for fish-bowl"
         if test -f $lPluginPath/.enabled
             if test -f $lPluginPath/description
                 if test -f $lPluginPath/init.fish
-                    . $lPluginPath/init.fish
+                    source $lPluginPath/init.fish
                 else
                     printf 'Plugin %s is missing a init.fish\n' $argv[1]
                 end
@@ -37,7 +37,7 @@ function setActivePrompt --description "Sets the active prompt to"
 
     if test -f $lPromptPath
         echo $activePrompt > $FBPATH/prompts/.activeprompt
-        . $lPromptPath
+        source $lPromptPath
     end
 end
 
@@ -55,7 +55,7 @@ function setActiveTheme --description "Sets the active theme to"
 
     if test -f $lThemePath
         echo $activeTheme > $FBPATH/themes/.activetheme
-        . $lThemePath
+        source $lThemePath
     end
 end
 

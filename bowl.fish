@@ -13,7 +13,7 @@ for p in /usr/bin /usr/local/bin /opt/local/bin ~/bin ~/.config/fish/bin
 end
 
 # Dependencies (internal)
-. $FBPATH/src/functions.fish
+source $FBPATH/src/functions.fish
 
 # Load plugins. Loader will see if they need to be activated.
 for pluginName in $FBPATH/plugins/*
