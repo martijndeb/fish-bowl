@@ -1,7 +1,7 @@
 fish-bowl
 =========
 
-A framework for managing your fish shell configuration. It can augment your shell experience with extras like themes, plugins and predefined prompts.
+A framework for managing your [fish shell](http://www.fishshell.com) configuration. It can augment your shell experience with extras like themes, plugins and predefined prompts.
 By default no plugins, themes or prompts are enabled. Your config should be augmented, not filled with bloat. Keeping it light, keep it small.
 
 Since this is a very early version, we assume ~/.config/fish and ~/.config/fish-bowl everywhere.
