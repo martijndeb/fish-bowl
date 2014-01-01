@@ -25,6 +25,7 @@ Checking for updates
 =========
 You can manually check for plugins now using the checkForFishBowlUpdate command. This only works if you installed using git clone.
 ```
+enablePlugin FishBowlGitUpdater
 checkForFishBowlUpdate
 ```
 
