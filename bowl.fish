@@ -20,6 +20,11 @@ for pluginName in $FBPATH/plugins/*
     loadFishBowlPlugin (basename $pluginName)
 end
 
+# Restore theme if one exists
+if test -f $FBPATH/themes/.activethemes
+    setActivePrompt (cat $FBPATH/themes/.activetheme | sed -e 's/^ *//g' -e 's/ *$//g')
+end
+
 # Restore prompt if one exists
 if test -f $FBPATH/prompts/.activeprompt
     setActivePrompt (cat $FBPATH/prompts/.activeprompt | sed -e 's/^ *//g' -e 's/ *$//g')

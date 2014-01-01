@@ -46,3 +46,21 @@ function resetPrompt --description "Reset to the default prompt"
     rm $FBPATH/prompts/.activeprompt
     setActivePrompt default
 end
+
+# Sets the active theme
+function setActiveTheme --description "Sets the active theme to"
+    set -l activeTheme $argv[1]
+
+    set -l lThemePath $FBPATH/themes/$activeTheme.fish
+
+    if test -f $lThemePath
+        echo $activeTheme > $FBPATH/themes/.activetheme
+        . $lThemePath
+    end
+end
+
+# Reset the theme
+function resetTheme --description "Reset to the default theme"
+    rm $FBPATH/themes/.activetheme
+    setActiveTheme default
+end

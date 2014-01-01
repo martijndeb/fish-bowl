@@ -2,6 +2,7 @@ fish-bowl
 =========
 
 A framework for managing your fish shell configuration. It can augment your shell experience with extras like themes, plugins and predefined prompts.
+By default no plugins, themes or prompts are enabled. Your config should be augmented, not filled with bloat. Keeping it light, keep it small.
 
 Since this is a very early version, we assume ~/.config/fish and ~/.config/fish-bowl everywhere.
 
@@ -35,7 +36,7 @@ disablePlugin <pluginname>
 Creating a new plugin
 ```
 cp $FBPATH/plugins/dummy $FBPATH/plugins/<pluginname>
-# Read instructions, then peplace with a description for your plugin
+# Read instructions, then replace with a description for your plugin
 vi $FBPATH/plugins/<pluginname>/description
 vi $FBPATH/plugins/<pluginname>/init.fish
 enablePlugin <pluginname>
@@ -52,4 +53,16 @@ setActivePrompt <promptname>
 Resetting to default
 ```
 resetPrompt
+```
+
+Custom themes
+=========
+Loading a custom theme
+```
+setActiveTheme <themename>
+```
+
+Resetting to default
+```
+resetTheme
 ```
