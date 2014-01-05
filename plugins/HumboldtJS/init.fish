@@ -1,14 +1,14 @@
-function initializeHJSProject --description "Initiales a new HumboldtJS project"
+function initializeHJSProject --description "Initializes a new HumboldtJS project"
     if test $argv
         printf 'Creating project %s\n' $argv[1]
 
         if test -d $argv[1]
             printf 'Project folder already exists'
         else
-            printf '\nHumboldtJS-STL Provides you with some great additions to the core functionality of HumboldtJS like htmlp template support.\nDo you wish to download it and set it up for you?\n%s[type no to skip, anything else to continue]%s\n' (set_color -o) (set_color normal)
+            printf '\nHumboldtJS-STL Provides you with some great additions to the core functionality of HumboldtJS like htmlp template support.\nMore information on https://github.com/sexybiggetje/humboldtjs-stl.\n\n\nDo you wish to download it and set it up for you?\n%s[type no to skip, anything else to continue]%s\n' (set_color -o) (set_color normal)
             read -l setupSTL
 
-            printf '\n\nWhile we fetch and setup the empty project, surf to http://humboldtjs.com\n\n'
+            printf '\n\nWhile we fetch and setup the empty project, take a peek at http://humboldtjs.com\n\n'
 
             curl -o master.zip -L https://github.com/humboldtjs/HumboldtJSEmpty/archive/master.zip
             unzip master.zip
@@ -54,7 +54,7 @@ function initializeHJSProject --description "Initiales a new HumboldtJS project"
             buildHJSProject debug
         end
 
-        printf '\n\nDone setting up %s.\nIf you want to try out your project run serveHJSProject from:\n%s.\n\n' $argv[1] (pwd)
+        printf '\n\nDone setting up %s.\nIf you want to try out your project run serveHJSProject\n\n' $argv[1]
     else
         printf 'Please specify a project name\n'
     end
