@@ -66,7 +66,7 @@ function buildHJSProject --description "Calls build script for HumboldtJS projec
     if findClosest build/humboldtjs.jar
         cd $lastClosest
 
-        if test -d $argv[1]
+        if not test $argv
             ant -f build/build.xml "compile debug"
         else
             ant -f build/build.xml "compile $argv[1]"
@@ -86,7 +86,7 @@ function serveHJSProject --description "Sets up a webserver for a HumboldtJS pro
     if findClosest build/humboldtjs.jar
         cd $lastClosest
 
-        if test -d $argv[1]
+        if not test $argv
             php -S localhost:7777 -t bin-debug
         else
             php -S localhost:7777 -t "bin-$argv[1]"
