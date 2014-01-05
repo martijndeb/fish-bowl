@@ -1,0 +1,8 @@
+Provides ways to initialize and locally serve HumboldtJS projects.
+
+Commands:
+initializeHJSProject - Create a new project structure. Expects argv 1 to be project name.
+buildHJSProject - Builds the project. Defaults to target "debug". Argv 1 might indicate another target
+serveHJSProject - Runs the php webserver at localhost:7777 for a target. Defaults to "debug". Argv 1 might indicate another target.
+
+http://humboldtjs.com
