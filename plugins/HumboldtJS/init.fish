@@ -44,6 +44,8 @@ function initializeHJSProject --description "Initiales a new HumbodltJS project"
 
                 mv humboldtjs-stl-master stl
 
+                sed -i "" "s/<arg value=\"..\/src\"\/>/<arg value=\"..\/src\"\/><arg value=\"-I\"\/><arg value=\"..\/stl\"\/>/g" build/build.xml
+
                 unlink master.zip
             end
 
