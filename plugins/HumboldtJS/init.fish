@@ -1,4 +1,4 @@
-function initializeHJSProject --description "Initiales a new HumbodltJS project"
+function initializeHJSProject --description "Initiales a new HumboldtJS project"
     if test $argv
         printf 'Creating project %s\n' $argv[1]
 
@@ -61,18 +61,42 @@ function initializeHJSProject --description "Initiales a new HumbodltJS project"
 end
 
 function buildHJSProject --description "Calls build script for HumboldtJS project"
-    if test -d $argv[1]
-        ant -f build/build.xml "compile debug"
+    set -l lastPwd (pwd)
+
+    if findClosest build/humboldtjs.jar
+        cd $lastClosest
+
+        if test -d $argv[1]
+            ant -f build/build.xml "compile debug"
+        else
+            ant -f build/build.xml "compile $argv[1]"
+        end
+
+        cd $lastPwd
+        return 0
     else
-        ant -f build/build.xml "compile $argv[1]"
+        printf 'Not inside a HumboldtJS project'
+        return 1
     end
 end
 
 function serveHJSProject --description "Sets up a webserver for a HumboldtJS project"
-    if test -d $argv[1]
-        php -S localhost:7777 -t bin-debug
+    set -l lastPwd (pwd)
+
+    if findClosest build/humboldtjs.jar
+        cd $lastClosest
+
+        if test -d $argv[1]
+            php -S localhost:7777 -t bin-debug
+        else
+            php -S localhost:7777 -t "bin-$argv[1]"
+        end
+
+        cd $lastPwd
+        return 0
     else
-        php -S localhost:7777 -t "bin-$argv[1]"
+        printf 'Not inside a HumboldtJS project'
+        return 1
     end
 end
 

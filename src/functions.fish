@@ -64,3 +64,20 @@ function resetTheme --description "Reset to the default theme"
     rm $FBPATH/themes/.activetheme
     setActiveTheme default
 end
+
+# Find closest X
+function findClosest --description "Find the closest argv[1]"
+    set -l closest (pwd)
+
+    while test $closest != '/'
+        if test -e "$closest/$argv[1]"
+            set -g lastClosest "$closest/"
+            return 0
+        end
+
+        set -l closest (dirname $closest)
+    end
+
+    set -g lastClosest ""
+    return 1
+end
