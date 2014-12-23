@@ -39,7 +39,7 @@ function initializeHJSProject --description "Initializes a new HumboldtJS projec
             end
 
             if test $setupSTL != 'no'
-                curl -o master.zip -L https://github.com/sexybiggetje/humboldtjs-stl/archive/master.zip
+                curl -o master.zip -L https://github.com/theimpossibleastronaut/humboldtjs-stl/archive/master.zip
                 unzip master.zip
 
                 mv humboldtjs-stl-master stl
